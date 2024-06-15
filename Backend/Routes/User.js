@@ -47,6 +47,22 @@ app.get("/newlyAdded", (req, res) => {
     .catch((error) => res.json({ error }));
 });
 
+//123098
+app.get("/product/:_id", (req, res) => {
+  const _id = req.params;
+  try {
+    Products.findOne({ _id }).then((product) => {
+      if (!product) {
+        res.json({ msg: "No such product" });
+      } else {
+        res.json({ product });
+      }
+    });
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
 app.listen(process.env.PORT || 3000, () =>
   console.log(`User PORT RUNNING AT ${process.env.PORT || 3000}`)
 );

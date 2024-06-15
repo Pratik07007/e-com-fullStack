@@ -23,43 +23,43 @@ const SignUp = () => {
     navigate("/login");
   };
   return (
-    <div className="flex flex-col gap-3 py-10">
+    <div className="flex flex-col justify-center gap-3 py-10 min-h-[70vh]">
       <div className="flex justify-center items-center gap-10">
         <form className="flex flex-col" action="submit">
-          <label>Name:</label>
-          <input
+          <label className="text-4xl">Name:</label>
+          <input 
             value={postPayload.name}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, name: e.target.value })
             }
-            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
+            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] w-96 outline-none text-gray-100 border-solid"
             type="email"
           />
-          <label>Phone:</label>
-          <input
+          <label className="text-4xl">Phone:</label>
+          <input 
             value={postPayload.phone}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, phone: e.target.value })
             }
-            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
+            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] w-96 outline-none text-gray-100 border-solid"
             type="email"
           />
-          <label>Email:</label>
-          <input
+          <label className="text-4xl">Email:</label>
+          <input 
             value={postPayload.email}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, email: e.target.value })
             }
-            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
+            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] w-96 outline-none text-gray-100 border-solid"
             type="email"
           />
-          <label>Password:</label>
-          <input
+          <label className="text-4xl">Password:</label>
+          <input 
             value={postPayload.password}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, password: e.target.value })
             }
-            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
+            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] w-96 outline-none text-gray-100 border-solid"
             type="password"
           />
         </form>

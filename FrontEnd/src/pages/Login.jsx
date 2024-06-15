@@ -25,19 +25,19 @@ const Login = () => {
     navigate("/");
   };
   return (
-    <div className="flex flex-col gap-3 py-10">
+    <div className="flex flex-col justify-center gap-3 py-10 min-h-[70vh]">
       <div className="flex justify-center items-center gap-10">
         <form className="flex flex-col" action="submit">
-          <label>Email:</label>
+          <label className="text-4xl">Email:</label>
           <input
             value={postPayload.email}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, email: e.target.value })
             }
-            className="rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
+            className="w-96 rounded-tr-3xl rounded-br-3xl bg-transparent border-black border-[2px] outline-none text-gray-100 border-solid"
             type="email"
           />
-          <label>Password:</label>
+          <label className="text-4xl">Password:</label>
           <input
             value={postPayload.password}
             onChange={(e) =>

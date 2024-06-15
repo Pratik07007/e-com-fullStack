@@ -1,11 +1,10 @@
 import { newlyAddedProductsAtom } from "@/stores/atom";
-import React from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import React, { useEffect } from "react";
+import { useRecoilValue } from "recoil";
 import ProductCard from "./ProductCard";
 
 const NewProducts = () => {
   const products = useRecoilValue(newlyAddedProductsAtom);
-  console.log(products);
 
   return (
     <>
@@ -15,7 +14,7 @@ const NewProducts = () => {
 
       <div className="flex flex-wrap gap-10 justify-center">
         {products.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
+          return <ProductCard key={product._id} {...product} />;
         })}
       </div>
     </>

@@ -4,7 +4,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="flex-col space-y-8">
+    <div className="flex-col space-y-8 min-h-[70vh]">
       <Swiper />
       <NewlyAdded />
     </div>

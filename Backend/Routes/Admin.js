@@ -88,22 +88,6 @@ app.get("/allproducts", (req, res) => {
     .catch(() => res.json({ msg: "Something went wrong" }));
 });
 
-//123098
-app.get("/product/:_id", (req, res) => {
-  const _id = req.params;
-  try {
-    Products.findOne({ _id }).then((product) => {
-      if (!product) {
-        res.json({ msg: "No such product" });
-      } else {
-        res.json({ product });
-      }
-    });
-  } catch (error) {
-    res.json({ error });
-  }
-});
-
 app.get("/productcategory", (req, res) => {
   const { category } = req.query;
   try {
