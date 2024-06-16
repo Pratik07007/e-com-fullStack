@@ -7,7 +7,7 @@ export const newlyAddedProductsAtom = atom({
     key: "newlyAddedProductsSelector",
     get: async () => {
       try {
-        const res = await fetch("http://localhost:3000/newlyadded");
+        const res = await fetch("http://localhost:3000/newlyAdded");
         const good = await res.json();
         return good.products;
       } catch (error) {

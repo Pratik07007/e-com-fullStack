@@ -6,11 +6,10 @@ import { Toaster } from "react-hot-toast";
 import { RecoilRoot } from "recoil";
 // Suspense
 
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <Toaster position="top-center" />
-    
+
     <RecoilRoot>
       <App />
     </RecoilRoot>

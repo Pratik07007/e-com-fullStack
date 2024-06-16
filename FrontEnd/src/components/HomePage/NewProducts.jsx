@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 
 const NewProducts = () => {
   const products = useRecoilValue(newlyAddedProductsAtom);
+  console.log(products)
 
   return (
     <>
