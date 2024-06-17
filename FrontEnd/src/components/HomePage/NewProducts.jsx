@@ -5,8 +5,8 @@ import ProductCard from "./ProductCard";
 
 const NewProducts = () => {
   const products = useRecoilValue(newlyAddedProductsAtom);
-  console.log(products)
-
+  console.log(products);
+  
   return (
     <>
       <h1 className="text-5xl font-bold text-yellow-400 uppercase">
