@@ -20,7 +20,7 @@ const SignUp = () => {
     const good = await res.json();
     toast.success(good.msg);
     setPostPayolad({ email: "", password: "", phone: "", name: "" });
-    navigate("/login");
+    navigate("/verifyotp");
   };
   return (
     <div className="flex flex-col justify-center gap-3 py-10 min-h-[70vh]">

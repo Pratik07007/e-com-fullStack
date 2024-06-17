@@ -1,4 +1,5 @@
 const { mongoose } = require("mongoose");
+const { boolean } = require("zod");
 
 //Database connection
 try {
@@ -19,6 +20,8 @@ const userSchema = mongoose.Schema({
   phone: String,
   email: String,
   password: String,
+  isVerified: { type: Boolean, default: false },
+  otp: { type: String, default: "" },
 });
 
 const allProductsSchema = mongoose.Schema({
@@ -28,7 +31,7 @@ const allProductsSchema = mongoose.Schema({
   desc: String,
   category: String,
   images: [String],
-  addedBy:String
+  addedBy: String,
 });
 
 //Making Modals

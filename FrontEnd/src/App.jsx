@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import ContactUs from "./pages/ContactUs";
 import ProductDetails from "./pages/ProductDetails";
+import VerifyOtp from "./components/VerifyOtp";
+
 
 const App = () => {
   const router = createBrowserRouter([
@@ -36,6 +38,9 @@ const App = () => {
         },{
           path:"/product/:_id",
           element: <ProductDetails/>
+        },{
+          path:"/verifyotp",
+          element : <VerifyOtp/>
         }
       ],
     },

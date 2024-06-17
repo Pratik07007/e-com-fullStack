@@ -45,14 +45,15 @@ const NavBar = () => {
             SIGNUP
           </NavLink>
 
-          {localStorage.getItem("token") ? (
+          {localStorage.getItem("token") &&
+          localStorage.getItem("token") !== "undefined" ? (
             <h1
               onClick={() => {
                 localStorage.removeItem("token");
-                toast.success("Logged Out SuccesFully");
+                toast.success("Logged Out Successfully");
                 navigate("/");
               }}
-              className=" cursor-pointer text-3xl text-black hover:taxt-red-400"
+              className="cursor-pointer text-3xl text-black hover:text-red-400"
             >
               LOGOUT
             </h1>

@@ -24,7 +24,7 @@ const adminRegistrationInputValidiation = (req, res, next) => {
   }
 };
 
-const userRegistrationInputValidiation = (req, res,next) => {
+const userRegistrationInputValidiation = (req, res, next) => {
   const body = req.body;
   const userSchema = zod.object({
     name: zod.string(),
