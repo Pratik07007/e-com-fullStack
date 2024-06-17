@@ -5,6 +5,8 @@ import ProductCard from "./ProductCard";
 
 const NewProducts = () => {
   const productLoadable = useRecoilValueLoadable(newlyAddedProductsAtom);
+
+  
   
   const [allProducts, setAllProducts] = useState([]);
 

@@ -1,8 +1,14 @@
+import { isLoggedIn } from "@/stores/atom";
 import React from "react";
 import toast from "react-hot-toast";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+// import { log } from "util";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  // const { LoggedIn, setLoggedIn } = useSetRecoilState(isLoggedIn);
+  // console.log(LoggedIn)
   return (
     <>
       <div className="w-screen h-32 bg-blue-200 flex justify-between items-center px-32">
@@ -44,6 +50,7 @@ const NavBar = () => {
               onClick={() => {
                 localStorage.removeItem("token");
                 toast.success("Logged Out SuccesFully");
+                navigate("/");
               }}
               className=" cursor-pointer text-3xl text-black hover:taxt-red-400"
             >

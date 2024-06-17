@@ -17,7 +17,6 @@ export const newlyAddedProductsAtom = atom({
   }),
 });
 
-
 export const productDetailsAtomFamily = atomFamily({
   key: "productDetailsAtomFamily",
   default: selectorFamily({
@@ -28,10 +27,19 @@ export const productDetailsAtomFamily = atomFamily({
         const good = await raw.json();
         return good.product;
       } catch (error) {
-        console.error('Error fetching product details:', error);
+        console.error("Error fetching product details:", error);
         return undefined;
       }
     },
   }),
 });
 
+export const isLoggedIn = atom({
+  key: "isLoggedIn",
+  default: selector({
+    key: "isLoggedInSelector",
+    get: () => {
+      return localStorage.getItem("token") ? true : false;
+    },
+  }),
+});
