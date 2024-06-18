@@ -1,5 +1,5 @@
 const express = require("express");
-const { User, Products } = require("../Db");
+const { User, Products, ContactUs } = require("../Db");
 const otpGenerator = require("otp-generator");
 
 const nodemailer = require("nodemailer");
@@ -277,6 +277,13 @@ app.get("/product/:_id", (req, res) => {
   } catch (error) {
     res.json({ error });
   }
+});
+
+app.post("/contacts", (req, res) => {
+  const { name, email, phone, msg } = req.body;
+  ContactUs.create({ name, email, phone, msg })
+    .then((resp) => res.json({ msg: "Message Submited" }))
+    .catch(() => res.json({ msg: "Something went wrong while submiting" }));
 });
 
 app.listen(process.env.PORT || 3000, () =>

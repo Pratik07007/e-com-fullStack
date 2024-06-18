@@ -12,22 +12,26 @@ const SignUp = () => {
   });
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/userregister", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postPayload),
-    });
-    const good = await res.json();
-    toast.success(good.msg);
-    setPostPayolad({ email: "", password: "", phone: "", name: "" });
-    navigate("/verifyotp");
+    try {
+      const res = await fetch("http://localhost:3000/userregister", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postPayload),
+      });
+      const good = await res.json();
+      toast.success(good.msg);
+      setPostPayolad({ email: "", password: "", phone: "", name: "" });
+      navigate("/verifyotp");
+    } catch (error) {
+      toast.error("Something went wrong, please try again later");
+    }
   };
   return (
     <div className="flex flex-col justify-center gap-3 py-10 min-h-[70vh]">
       <div className="flex justify-center items-center gap-10">
         <form className="flex flex-col" action="submit">
           <label className="text-4xl">Name:</label>
-          <input 
+          <input
             value={postPayload.name}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, name: e.target.value })
@@ -36,7 +40,7 @@ const SignUp = () => {
             type="email"
           />
           <label className="text-4xl">Phone:</label>
-          <input 
+          <input
             value={postPayload.phone}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, phone: e.target.value })
@@ -45,7 +49,7 @@ const SignUp = () => {
             type="email"
           />
           <label className="text-4xl">Email:</label>
-          <input 
+          <input
             value={postPayload.email}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, email: e.target.value })
@@ -54,7 +58,7 @@ const SignUp = () => {
             type="email"
           />
           <label className="text-4xl">Password:</label>
-          <input 
+          <input
             value={postPayload.password}
             onChange={(e) =>
               setPostPayolad({ ...postPayload, password: e.target.value })

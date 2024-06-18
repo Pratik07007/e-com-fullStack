@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const { mongoose, mongo } = require("mongoose");
 const { boolean } = require("zod");
 
 //Database connection
@@ -34,10 +34,18 @@ const allProductsSchema = mongoose.Schema({
   addedBy: String,
 });
 
+const contactUsSchema = mongoose.Schema({
+  name: String,
+  email: String,
+  phone: Number,
+  msg: String,
+});
+
 //Making Modals
 
 const Admin = mongoose.model("admins", adminSchema);
 const User = mongoose.model("user", userSchema);
 const Products = mongoose.model("products", allProductsSchema);
+const ContactUs = mongoose.model("contacts", contactUsSchema);
 
-module.exports = { Admin, User, Products };
+module.exports = { Admin, User, Products, ContactUs };

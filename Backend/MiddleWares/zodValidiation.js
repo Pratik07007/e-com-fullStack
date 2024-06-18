@@ -42,6 +42,7 @@ const userRegistrationInputValidiation = (req, res, next) => {
       ),
   });
 
+  
   const response = userSchema.safeParse(body);
   if (response.success) {
     next();

@@ -1,6 +1,8 @@
+import { BASE_URL } from "@/utils/BASE_URL";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,19 +12,24 @@ const Login = () => {
   });
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/userLogin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postPayload),
-    });
-    const good = await res.json();
-    localStorage.setItem("token", good.token);
-    {
-      good.msg
-        ? toast.error(good?.msg)
-        : toast.success("Logged In Succesfully");
+    try {
+      const res = await fetch(`${BASE_URL}/userLogin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postPayload),
+      });
+      const good = await res.json();
+      localStorage.setItem("token", good.token);
+      {
+        good.msg
+          ? toast.error(good?.msg)
+          : toast.success("Logged In Succesfully");
+      }
+      navigate("/");
+    } catch (error) {
+      toast.error("Something went wrong please try again later")
     }
-    navigate("/");
+    
   };
   return (
     <div className="flex flex-col justify-center gap-3 py-10 min-h-[70vh]">

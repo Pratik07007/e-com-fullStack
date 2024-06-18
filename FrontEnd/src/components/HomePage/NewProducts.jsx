@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useRecoilValueLoadable } from "recoil";
 import ProductCard from "./ProductCard";
 
+
 const NewProducts = () => {
   const productLoadable = useRecoilValueLoadable(newlyAddedProductsAtom);
 
   
-  
+
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
