@@ -39,7 +39,7 @@ const ContactUs = () => {
             body: JSON.stringify(contactUsPayload),
           });
           const good = await res.json();
-          toast(good.msg);
+          toast.success(good.msg);
         } catch (error) {
           toast.error(
             "Message not submited, please try again or mail us at s.dhimal006@gmail.com"
