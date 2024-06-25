@@ -21,7 +21,7 @@ const SignUp = () => {
       const good = await res.json();
       toast.success(good.msg);
       setPostPayolad({ email: "", password: "", phone: "", name: "" });
-      navigate("/verifyotp");
+      navigate("/verifyotp", { state: postPayload.email });
     } catch (error) {
       toast.error("Something went wrong, please try again later");
     }

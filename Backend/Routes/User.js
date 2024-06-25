@@ -286,6 +286,21 @@ app.post("/contacts", (req, res) => {
     .catch(() => res.json({ msg: "Something went wrong while submiting" }));
 });
 
+app.patch("/verifyotp", (req, res) => {
+  const { email, otp } = req.body;
+  User.findOne({ email })
+    .then((response) => {
+      if (response.otp === otp) {
+        User.updateOne({ email }, { isVerified: true }).then(() =>
+          res.json({ msg: "User Verified Succesfully" })
+        );
+      } else {
+        res.json({ msg: "Invalid OTP" });
+      }
+    })
+    .catch(() => res.json({ msg: "Something Went Wrong" }));
+});
+
 app.listen(process.env.PORT || 3000, () =>
   console.log(`User PORT RUNNING AT ${process.env.PORT || 3000}`)
 );
